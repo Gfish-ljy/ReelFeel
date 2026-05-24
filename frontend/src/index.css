@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+}
+
+.ProseMirror {
+  @apply min-h-[200px] outline-none prose prose-slate max-w-none;
+}
+
+.ProseMirror img {
+  @apply max-w-full rounded-lg my-2;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  @apply text-slate-400 float-left h-0 pointer-events-none;
+  content: attr(data-placeholder);
+}
