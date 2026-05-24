@@ -1,0 +1,19 @@
+{
+  "name": "anidiary",
+  "version": "1.0.0",
+  "private": true,
+  "description": "漫日记 AniDiary monorepo root",
+  "scripts": {
+    "dev": "npm run dev --prefix frontend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "stop:backend": "sh -c 'PIDS=$(lsof -ti :3001 2>/dev/null); if [ -n \"$PIDS\" ]; then kill $PIDS && echo 已结束端口 3001 上的进程: $PIDS; else echo 端口 3001 无占用进程; fi'",
+    "check": "bash scripts/check-services.sh",
+    "dev:infra": "docker compose -p anidiary up -d postgres redis minio minio-init",
+    "dev:all": "bash scripts/start-dev.sh",
+    "build": "npm run build --prefix frontend",
+    "build:backend": "npm run build --prefix backend",
+    "install:all": "npm install --prefix frontend && npm install --prefix backend",
+    "test": "npm test --prefix backend"
+  }
+}
